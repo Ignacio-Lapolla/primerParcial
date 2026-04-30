@@ -1,6 +1,5 @@
 package edu.uade.primerparcial.data
 
-import edu.uade.primerparcial.data.remote.PokemonApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

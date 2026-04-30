@@ -1,10 +1,11 @@
 package edu.uade.primerparcial.data.repository
 
-import edu.uade.primerparcial.data.remote.PokemonRemoteDataSource
-import edu.uade.primerparcial.domain.model.Pokemon
+import edu.uade.primerparcial.data.RetrofitInstance
+import edu.uade.primerparcial.data.PokemonApiService
+import edu.uade.primerparcial.model.Pokemon
 
 class PokemonRepository(
-    private val remoteDataSource: PokemonRemoteDataSource = PokemonRemoteDataSource()
+    private val api: PokemonApiService = RetrofitInstance.api
 ) {
-    suspend fun getPokemons(): List<Pokemon> = remoteDataSource.getPokemons()
+    suspend fun getPokemons(): List<Pokemon> = api.getPokemons().results
 }
