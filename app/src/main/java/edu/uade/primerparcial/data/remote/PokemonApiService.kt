@@ -1,4 +1,4 @@
-package edu.uade.primerparcial.data
+package edu.uade.primerparcial.data.remote
 
 import retrofit2.http.GET
 import retrofit2.http.Query

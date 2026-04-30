@@ -1,4 +1,4 @@
-package edu.uade.primerparcial.model
+package edu.uade.primerparcial.domain.model
 
 data class Pokemon(
     val name: String,
