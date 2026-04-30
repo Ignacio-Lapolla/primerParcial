@@ -3,7 +3,7 @@ package edu.uade.primerparcial.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import edu.uade.primerparcial.data.repository.PokemonRepository
-import edu.uade.primerparcial.model.Pokemon
+import edu.uade.primerparcial.domain.model.Pokemon
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

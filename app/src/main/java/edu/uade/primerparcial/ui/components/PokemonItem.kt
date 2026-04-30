@@ -21,7 +21,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import edu.uade.primerparcial.model.Pokemon
+import edu.uade.primerparcial.domain.model.Pokemon
 
 @Composable
 fun PokemonItem(pokemon: Pokemon) {
