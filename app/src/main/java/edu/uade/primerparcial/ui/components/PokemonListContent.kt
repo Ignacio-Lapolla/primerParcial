@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import edu.uade.primerparcial.viewmodel.PokemonUiState
+import edu.uade.primerparcial.ui.state.PokemonUiState
 
 @Composable
 fun PokemonListContent(

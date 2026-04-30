@@ -18,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import edu.uade.primerparcial.domain.model.Pokemon
@@ -50,8 +49,7 @@ fun PokemonItem(pokemon: Pokemon) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = pokemon.nameFormatted,
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold
+                    style = MaterialTheme.typography.titleMedium
                 )
                 Text(
                     text = "N.º ${pokemon.id}",

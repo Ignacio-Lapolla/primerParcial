@@ -110,3 +110,22 @@ edu.uade.primerparcial/
 ```
 
 > Nota: `usecase/`, `local/`, `mapper/` y `di/` no se implementaron porque el propio PDF indica que para proyectos pequeños el flujo simplificado `Composable → ViewModel → Repository` es suficiente. Agregar esas capas sin necesidad real sería sobreingeniería.
+
+---
+
+### 4. Mejoras de calidad y buenas prácticas — 2026-04-30
+
+**Problema:** Revisión del código contra los estándares de MVVM, Kotlin y Material Design 3 reveló cuatro issues.
+
+**Cambios realizados:**
+
+| Cambio | Archivo | Justificación |
+|---|---|---|
+| `.value =` → `.update()` en StateFlow | `viewmodel/PokemonViewModel.kt` | `.update()` es atómico y thread-safe; `.value =` no lo es |
+| `FontWeight.SemiBold` eliminado | `ui/components/PokemonItem.kt` | Hardcodear tipografía viola MD3; el estilo ya lo define `titleMedium` |
+| `@SerializedName` agregado | `domain/model/Pokemon.kt`, `data/remote/PokemonListResponse.kt` | Sin esta anotación, ProGuard/R8 ofusca los nombres en release y Gson retorna `null` |
+| `PokemonUiState` movido a `ui/state/` | `ui/state/PokemonUiState.kt` | La capa View no debería importar desde el paquete `viewmodel` para obtener una data class de estado |
+
+**Lo que no se implementó y por qué:**
+
+El patrón **DTO separado** (`PokemonDto` en `data/remote/` + mapeo a `Pokemon` en el DataSource) es la solución arquitecturalmente correcta para desacoplar el modelo de dominio del contrato de la API. No se implementó porque para este proyecto es sobreingeniería: la API no va a cambiar y el modelo de dominio tiene exactamente los campos que devuelve la respuesta. Agregar un DTO, un mapper y un archivo extra solo para seguir el patrón hubiera sido complejidad sin beneficio real.

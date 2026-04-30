@@ -1,7 +1,8 @@
 package edu.uade.primerparcial.data.remote
 
+import com.google.gson.annotations.SerializedName
 import edu.uade.primerparcial.domain.model.Pokemon
 
 data class PokemonListResponse(
-    val results: List<Pokemon>
+    @SerializedName("results") val results: List<Pokemon>
 )
